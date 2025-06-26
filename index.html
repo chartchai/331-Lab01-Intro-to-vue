@@ -13,18 +13,31 @@
 <body>
     <div id="app">
         <div class="nav-bar"></div>
-        <div class="product-display">
-            <div class="product-container">
-                <div class="product-info">
-                    <h1>{{product}}</h1>
-                    <p v-if="inventory>10">In Stock</p>
-                    <p v-else-if="inventory<=10 && inventory>0">Almost Sold Out</p>
-                    <p v-else>Out of Stock</p>
-                    <p v-if="onSale">On Sale!</p>
-                    <p v-else>Not on Sale</p>
-                    <div class="product-image">
-                        <img :src="image">
-                    </div>
+            <div class="cart">Cart: {{cart}}</div>
+            <div class="product-display">
+                <div class="product-container">
+                    <div class="product-info">
+                        <h1>{{product}}</h1>
+
+                        <p v-if="inStock">In Stock</p>
+                        <p v-else>Out of Stock</p>
+                        
+                        <ul>
+                            <li v-for="detail in details">{{detail}}</li>
+                        </ul>
+                        
+                        <div v-for="variant in variants" :key="variant.id" @mouseover="image = variant.image">
+                            <li>
+                                {{variant.color}}
+                            </li>
+                        </div>
+
+                        <div class="product-image">
+                            <img :src="image">
+                        </div>
+
+                        <button class="button" @click="addToCart">Add To Cart</button>
+                        <button class="button" @click="toggleStock">Toggle Stock</button>
                 </div>
             </div>
         </div>
