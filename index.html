@@ -42,7 +42,7 @@
          <button class="button" @click="StockStatus">In Stock</button> <!-- 6.7 -->
         <p>{{ description }}</p> <!-- 2.5 -->
 
-        <p v-if="onSale">On Sale</p> <!--4.9-->
+        <p v-if="onSale">{{ brand + ' ' + product + ' is on sale' }}</p> <!--8.5-->
         <p v-else>Not on Sale</p>
 
         <!--5.5-->

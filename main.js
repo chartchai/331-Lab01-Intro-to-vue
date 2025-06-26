@@ -46,6 +46,8 @@ createApp({
         })
 
 return {
+    brand,
+    product,
     title,
     description,
     image,
@@ -59,7 +61,8 @@ return {
     addToCart,
     updateImage,
     StockStatus,
-    updateVariant
+    updateVariant,
+    inStock
 };
         }
     }).mount('#app');
