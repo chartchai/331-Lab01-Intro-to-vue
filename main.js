@@ -58,7 +58,8 @@ return {
     cart,
     addToCart,
     updateImage,
-    StockStatus
+    StockStatus,
+    updateVariant
 };
         }
     }).mount('#app');
