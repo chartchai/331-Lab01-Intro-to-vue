@@ -5,7 +5,7 @@ createApp({
     // const product = ref('Stocks');
     const product = ref('Boots');
     const image = ref('./assets/images/socks_green.jpg');
-    const inStock = ref(true);
+    const inStock = ref(false);
     const inventory = ref(100);
     const details = ref(['50% cotton','30% wool', '20% polyester']);
     const variants = ref([
@@ -22,10 +22,6 @@ createApp({
       image.value = variantImage;
     }
 
-    function toggleStock() {
-      inStock.value = !inStock.value;
-    }
-
-    return { product, image, inStock, inventory, details, variants, cart, addToCart , updateImage, toggleStock };
+    return { product, image, inStock, inventory, details, variants, cart, addToCart , updateImage };
   }
 }).mount('#app');
