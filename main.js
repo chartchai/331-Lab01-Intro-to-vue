@@ -27,7 +27,7 @@ const app = Vue.createApp({
                 2235: 'Blue'
             }
             
-            const displayItems = Object.entries(counts).map(([id, count]) => {
+            const displayItems = Object.entries(counts).map(([id, count]) => { // Destructuring array
                 const name = productNames[id] || `ID ${id}`
                 return `${name}: ${count}`
             })

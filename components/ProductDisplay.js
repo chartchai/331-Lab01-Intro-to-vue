@@ -1,4 +1,4 @@
-const { ref, computed, reactive} = Vue; 
+const { ref, computed, reactive} = Vue; //Destructuring Vue methods
 const productDisplay = {
     template: `
     <div class="product-display">

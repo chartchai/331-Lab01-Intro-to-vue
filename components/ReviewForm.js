@@ -5,13 +5,13 @@ const reviewForm = {
     <form class="review-form" @submit.prevent="onSubmit">
       <h3>Leave a review</h3>
       <label for="name">Name:</label>
-      <input id="name" v-model="form.name">
+      <input id="name" v-model="name">
 
       <label for="review">Review:</label>
-      <textarea id="review" v-model="form.review"></textarea>
+      <textarea id="review" v-model="review"></textarea>
 
       <lable for="rating">Rating:</lable>
-      <select id="rating" v-model="form.rating">
+      <select id="rating" v-model="rating">
         <option>5</option>
         <option>4</option>
         <option>3</option>
@@ -48,7 +48,7 @@ const reviewForm = {
         form.rating = null
       }
       return {
-        form,
+        ...toRefs(form), //Spread operator กับ destructuring
         onSubmit
       }
     }
