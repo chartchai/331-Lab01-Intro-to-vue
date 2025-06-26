@@ -1,7 +1,7 @@
 const app = Vue.createApp({
     setup() {
         const cart = ref(0)
-        const premium = ref(true)
+        const premium = ref(false)
         return {
             cart,
             premium
