@@ -1,3 +1,4 @@
+const { ref, computed } = Vue; 
 const productDisplay = {
     template: `
     <div class="product-display">
@@ -14,6 +15,7 @@ const productDisplay = {
         <p v-if="inventory > 10">In Stock</p>
         <p v-else-if="inventory <= 10 && inventory > 0">Almost out of Stock</p>
         <p v-else>Out of stock</p>
+        <p>Shipping: {{shipping}} </p>
         <ul>
             <li v-for="detail in detail"> {{ detail }} </li>
         </ul>
@@ -21,9 +23,21 @@ const productDisplay = {
             {{variant.color}}
         </div>
         <button class="button" :disabled='!inStock' @click="addToCart" :class='{disabledButton: !inStock}'>Add To Cart</button>
+
+</div>
     </div>
     `,
-    setup() {
+        props: {
+            premium:Boolean
+        },
+        setup(props) {
+        const shipping = computed (()=>{
+            if (props.premium) {
+                return 'Free'
+            } else {
+                return 30
+            }
+        })
         const product = ref('Boots');
         const brand = ref('SE 331');
         const description = ref('green boots');
@@ -84,7 +98,10 @@ const productDisplay = {
             updateImage,
             StockStatus,
             updateVariant,
-            inStock
+            inStock,
+            shipping
         };
     }
 };
+
+
