@@ -14,10 +14,9 @@
     <div id="app">
         <div class="nav-bar"></div>
         <div class="cart">cart ({{ cartDisplay }})</div>
-        <product-display :premium="premium" @add-to-cart="updateCart"></product-display>
+        <product-display :premium="premium" @add-to-cart="updateCart" @remove-from-cart="removeFromCart"></product-display>
         <product-display></product-display>
         <product-display></product-display>
-
 
         <button class="button" @click="StockStatus">In Stock</button> <!-- 6.7 -->
         <p>{{ description }}</p> <!-- 2.5 -->

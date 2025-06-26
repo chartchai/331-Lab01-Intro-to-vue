@@ -2,9 +2,18 @@ const app = Vue.createApp({
     setup() {
         const cart = ref([])
         const premium = ref(true)
+        
         function updateCart(id){
             cart.value.push(id)
         }
+        
+        function removeFromCart(id){
+            const index = cart.value.indexOf(id)
+            if (index > -1) {
+                cart.value.splice(index, 1)
+            }
+        }
+        
         // Computed property to show cart contents with counts
         const cartDisplay = computed(() => {
             const counts = {}
@@ -25,14 +34,17 @@ const app = Vue.createApp({
             
             return displayItems.length > 0 ? displayItems.join(', ') : '0'
         })
-         return {
+        
+        return {
             cart,
             premium,
             updateCart,
+            removeFromCart,
             cartDisplay
         };
     }
 });
+
 app.component('product-details', productDetails);
 app.component('product-display', productDisplay);
 app.mount('#app');
