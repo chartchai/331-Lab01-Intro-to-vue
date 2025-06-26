@@ -16,15 +16,12 @@ const productDisplay = {
         <p v-else-if="inventory <= 10 && inventory > 0">Almost out of Stock</p>
         <p v-else>Out of stock</p>
         <p>Shipping: {{shipping}} </p>
-        <ul>
-            <li v-for="detail in detail"> {{ detail }} </li>
-        </ul>
+        <product-details :details="detail"></product-details>
         <div v-for="(variant ,index) in variants" :key="variant.id" @mouseover="updateVariant(index)" class="color-circle" :style="{backgroundColor: variant.color}">
             {{variant.color}}
         </div>
         <button class="button" :disabled='!inStock' @click="addToCart" :class='{disabledButton: !inStock}'>Add To Cart</button>
 
-</div>
     </div>
     `,
         props: {

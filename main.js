@@ -8,5 +8,6 @@ const app = Vue.createApp({
         };
     }
 });
+app.component('product-details', productDetails);
 app.component('product-display', productDisplay);
 app.mount('#app');

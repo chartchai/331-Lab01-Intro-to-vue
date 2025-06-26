@@ -19,22 +19,23 @@
         <product-display></product-display>
 
 
-            <button class="button" @click="StockStatus">In Stock</button> <!-- 6.7 -->
-            <p>{{ description }}</p> <!-- 2.5 -->
+        <button class="button" @click="StockStatus">In Stock</button> <!-- 6.7 -->
+        <p>{{ description }}</p> <!-- 2.5 -->
 
-            <p v-if="onSale">{{ brand + ' ' + product + ' is on sale' }}</p> <!--8.5-->
-            <p v-else>Not on Sale</p>
+        <p v-if="onSale">{{ brand + ' ' + product + ' is on sale' }}</p> <!--8.5-->
+        <p v-else>Not on Sale</p>
 
-            <!--5.5-->
-            <p>Sizes: <span v-for="size in sizes" :key="size">{{ size }}</span> </p>
+        <!--5.5-->
+        <p>Sizes: <span v-for="size in sizes" :key="size">{{ size }}</span> </p>
 
-        </div>
+    </div>
 
     </div>
 
     <!-- Import Js -->
+    <script src="./components/ProductDetails.js"></script>
     <script src="./components/ProductDisplay.js"></script>
-        <script src="./main.js"></script>
+    <script src="./main.js"></script>
 </body>
 
 </html>
